@@ -1,7 +1,19 @@
 ---
-- name: add mongodb repo
+- name: Add mongodb repo
   become: yes
   become_method: sudo
   template:
     src: mongo32.repo.j2 
     dest: /etc/yum.repos.d/mongodb-org-3.2.repo
+
+- name: Install mongodb package
+  become: yes
+  become_method: sudo
+  yum: name={{ item }} state=installed
+  with_items:
+   - mongodb-org
+
+- name: Start mongodb
+  service: name=mongod state=started
+  become: yes
+  become_method: sudo

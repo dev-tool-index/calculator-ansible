@@ -1,0 +1,9 @@
+---
+# file: calculator_services.yml
+- name: Deploy calculator-service
+  hosts: calculator_service_servers
+  remote_user: hliu
+
+  roles:
+    - common
+    - calculator_service

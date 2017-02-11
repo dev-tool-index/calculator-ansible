@@ -1,0 +1,9 @@
+---
+# file: mongodbs.yml
+- name: Deploy mongodb and configure the databases
+  hosts: mongodb_servers
+  remote_user: hliu
+
+  roles:
+    - common
+    - mongodb

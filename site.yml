@@ -1,21 +1,4 @@
 ---
-- name: Apply common to all nodes
-  hosts: all
-  remote_user: hliu
-
-  roles:
-    - common
-
-- name: Deploy mongodb and configure the databases
-  hosts: mongodb_servers
-  remote_user: hliu
-
-  roles:
-    - mongodb
-
-- name: Deploy calculator-service
-  hosts: calculator_service_servers
-  remote_user: hliu
-
-  roles:
-    - calculator_service
+# file: site.yml
+- include: mongodbs.yml
+- include: calculator_services.yml

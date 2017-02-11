@@ -1,0 +1,14 @@
+---
+- name: apply common to all nodes
+  hosts: all
+  remote_user: hliu
+
+  roles:
+    - common
+
+- name: deploy mongodb and configure the databases
+  hosts: mongodb_servers
+  remote_user: hliu
+
+  roles:
+    - mongodb

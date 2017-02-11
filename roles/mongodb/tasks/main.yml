@@ -1,0 +1,7 @@
+---
+- name: add mongodb repo
+  become: yes
+  become_method: sudo
+  template:
+    src: mongo32.repo.j2 
+    dest: /etc/yum.repos.d/mongodb-org-3.2.repo

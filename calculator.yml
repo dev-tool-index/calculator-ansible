@@ -1,7 +1,0 @@
----
-- hosts: backends
-  #remote_user: hliu
-  tasks:
-    - name: test connection
-      ping:
-      #remote_user: hliu

@@ -1,5 +1,9 @@
-[backends]
+[nginx_servers]
 localhost
 
-[backends:vars]
-#ansible_user=hliu
+[calculator_service_servers]
+localhost
+
+
+[mongodb_servers]
+localhost

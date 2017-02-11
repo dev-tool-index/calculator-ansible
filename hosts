@@ -4,6 +4,5 @@ localhost
 [calculator_service_servers]
 localhost
 
-
 [mongodb_servers]
 localhost

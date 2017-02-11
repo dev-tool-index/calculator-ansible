@@ -1,14 +1,21 @@
 ---
-- name: apply common to all nodes
+- name: Apply common to all nodes
   hosts: all
   remote_user: hliu
 
   roles:
     - common
 
-- name: deploy mongodb and configure the databases
+- name: Deploy mongodb and configure the databases
   hosts: mongodb_servers
   remote_user: hliu
 
   roles:
     - mongodb
+
+- name: Deploy calculator-service
+  hosts: calculator_service_servers
+  remote_user: hliu
+
+  roles:
+    - calculator_service

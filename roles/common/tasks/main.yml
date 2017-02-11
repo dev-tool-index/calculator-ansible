@@ -1,3 +1,12 @@
 ---
-- name: test connection
+- name: Test connection
   ping:
+
+- name: Create app folder
+  become: yes
+  become_method: sudo
+  file: 
+    path: /opt/myapp 
+    state: directory
+    owner: hliu
+    group: hliu

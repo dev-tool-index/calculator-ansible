@@ -16,7 +16,6 @@
 - Execute the playbook
 
   ```sh
-  $ ansible-playbook -i hosts calculator.yml --ask-become-pass
-  ansible 2.2.1.0
+  $ ansible-playbook -i hosts site.yml --ask-become-pass
   ```
   

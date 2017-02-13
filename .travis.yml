@@ -10,6 +10,7 @@ addons:
   apt:
     packages:
       - oracle-java8-installer
+      - oracle-java8-set-default
 
 before_install:
   - sudo apt-get update -qq
@@ -23,3 +24,6 @@ script:
   - ansible --version
   - ansible-playbook -i development/hosts site.yml --syntax-check
   - java -version
+  #- ansible-playbook -i development/hosts site.yml -v 
+  #- sleep 15
+  #- curl -i localhost

@@ -1,0 +1,16 @@
+---
+
+- name: Install nginx
+  become: yes
+  become_method: sudo
+  yum:
+    name: nginx-1.10.2 
+    state: present
+
+### TODO conf
+### https://github.com/dev-tool-index/calculator-perf-test/blob/master/deploy/nginx.conf
+
+- name: Start nginx
+  service: name=nginx state=started
+  become: yes
+  become_method: sudo

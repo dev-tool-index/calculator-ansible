@@ -1,0 +1,9 @@
+---
+# file: nginx_servers.yml
+- name: Deploy nginx servers and configuration
+  hosts: nginx_servers
+  remote_user: hliu
+
+  roles:
+    - common
+    - nginx

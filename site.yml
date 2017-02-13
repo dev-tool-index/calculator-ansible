@@ -1,4 +1,5 @@
 ---
 # file: site.yml
+- include: nginx_servers.yml
 - include: mongodbs.yml
 - include: calculator_services.yml

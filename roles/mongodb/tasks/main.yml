@@ -1,10 +1,15 @@
 ---
-- name: Add mongodb repo
+
+- name: Add Mongodb repo
   become: yes
   become_method: sudo
-  template:
-    src: mongo32.repo.j2 
-    dest: /etc/yum.repos.d/mongodb-org-3.2.repo
+  yum_repository:
+    name: mongodb-org-3.2
+    description: mongdo db 3.2 repo
+    file: /etc/yum.repos.d/mongodb-org-3.2.repo
+    baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
+    gpgcheck: yes
+    enabled: yes
 
 - name: Install mongodb package
   become: yes

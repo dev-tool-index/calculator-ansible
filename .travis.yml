@@ -2,12 +2,17 @@
 sudo: required
 
 language: python
+
 python: 
   - "2.7"
 
 before_install:
+  - sudo add-apt-repository ppa:webupd8team/java
   - sudo apt-get update -qq
   - sudo pip install --upgrade pip
+  - sudo apt-get install -y python-software-properties debconf-utils
+  - echo "oracle-java8-installer shared/accepted-oracle-license-v1-1 select true" | sudo debconf-set-selections
+  - sudo apt-get install -y oracle-java8-installer
 
 install:
   - pip install -r requirements.txt
@@ -16,3 +21,4 @@ script:
   - pip --version
   - ansible --version
   - ansible-playbook -i development/hosts site.yml --syntax-check
+  - java -version

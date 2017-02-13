@@ -10,16 +10,21 @@
 
 - name: Download calculator-service.war
   get_url:
-    url: https://jitpack.io/com/github/dev-tool-index/calculator-service/3.7/calculator-service-3.7.war
+    url: https://jitpack.io/com/github/dev-tool-index/calculator-service/{{ calculator_service.version }}/calculator-service-{{ calculator_service.version }}.war
     dest: /opt/myapp/calcaulator-service/calculator-service.war
-    checksum: sha1:9ea3b2edea824470bbd226e1d6a90631e4376c06
+    checksum: sha1:51e0302cb6cf9a37b162dc9e0d224b5271a1965a
+
+- name: Create file application.properties
+  template:
+    src: application.properties.j2
+    dest: /opt/myapp/calcaulator-service/application.properties
 
 - name: Kill calculator-service
-  command: pkill -9 -f "java -Dserver.port=8091 -jar"
+  command: pkill -9 -f "server.port=8091 -jar"
   ignore_errors: True
 
 - name: Start calculator-service
-  shell: nohup java -Dserver.port=8091 -jar /opt/myapp/calcaulator-service/calculator-service.war >/dev/null 2>&1 &
+  shell: nohup java -Dspring.config.location=/opt/myapp/calcaulator-service/application.properties -Dserver.port=8091 -jar /opt/myapp/calcaulator-service/calculator-service.war >/dev/null 2>&1 &
   args:
     executable: /bin/bash
   environment:

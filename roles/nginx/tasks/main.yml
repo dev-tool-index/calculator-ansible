@@ -7,8 +7,12 @@
     name: nginx-1.10.2 
     state: present
 
-### TODO conf
-### https://github.com/dev-tool-index/calculator-perf-test/blob/master/deploy/nginx.conf
+- name: Create cfg file
+  become: yes
+  become_method: sudo
+  template:
+    src: nginx.conf.j2
+    dest: /etc/nginx/nginx.conf
 
 - name: Start nginx
   service: name=nginx state=started

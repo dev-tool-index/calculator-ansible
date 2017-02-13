@@ -20,11 +20,11 @@
     dest: /opt/myapp/calcaulator-service/application.properties
 
 - name: Kill calculator-service
-  command: pkill -9 -f "server.port=8091 -jar"
+  command: pkill -9 -f "server.port={{ calculator_service_http_port }} -jar"
   ignore_errors: True
 
 - name: Start calculator-service
-  shell: nohup java -Dspring.config.location=/opt/myapp/calcaulator-service/application.properties -Dserver.port=8091 -jar /opt/myapp/calcaulator-service/calculator-service.war >/dev/null 2>&1 &
+  shell: nohup java -Dspring.config.location=/opt/myapp/calcaulator-service/application.properties -Dserver.port={{ calculator_service_http_port }} -jar /opt/myapp/calcaulator-service/calculator-service.war >/dev/null 2>&1 &
   args:
     executable: /bin/bash
   environment:

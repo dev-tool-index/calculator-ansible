@@ -1,4 +1,5 @@
 # calculator-ansible
+[![Build Status](https://travis-ci.org/dev-tool-index/calculator-ansible.svg?branch=master)](https://travis-ci.org/dev-tool-index/calculator-ansible)
 
 ## Prerequisites
 

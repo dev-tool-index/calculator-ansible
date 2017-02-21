@@ -1,0 +1,18 @@
+---
+sudo: required
+
+language: python
+python: 
+  - "2.7"
+
+before_install:
+  - sudo apt-get update -qq
+  - sudo pip install --upgrade pip
+
+install:
+  - pip install -r requirements.txt
+
+script:
+  - pip --version
+  - ansible --version
+  - ansible-playbook -i development/hosts site.yml --syntax-check

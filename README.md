@@ -17,6 +17,6 @@
 - Execute the playbook
 
   ```sh
-  $ ansible-playbook -i hosts site.yml --ask-become-pass
+  $ ansible-playbook -i development/hosts site.yml [-v] [--ask-become-pass]
   ```
   

@@ -1,8 +1,10 @@
+some_docker_container ansible_connection=docker ansible_host=mycentos
+
 [nginx_servers]
-localhost
+some_docker_container
 
 [calculator_service_servers]
-localhost
+some_docker_container
 
 [mongodb_servers]
-localhost
+some_docker_container

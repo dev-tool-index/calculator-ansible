@@ -8,3 +8,8 @@
   file: 
     path: /opt/myapp 
     state: directory
+
+- name: Install initscripts
+  yum:
+    name: initscripts
+    state: latest

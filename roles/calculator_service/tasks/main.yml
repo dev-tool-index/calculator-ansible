@@ -5,8 +5,21 @@
   file:
     path: /opt/myapp/calcaulator-service
     state: directory
-    owner: hliu
-    group: hliu
+    #owner: hliu
+    #group: hliu
+
+- name: Download java 8 rpm
+  get_url:
+    url: http://download.oracle.com/otn-pub/java/jdk/8u121-b13/e9e7ea248e2c4826b92b3f075a80e441/jdk-8u121-linux-x64.rpm
+    dest: /opt/myapp/calcaulator-service/jdk-8u121-linux-x64.rpm
+    headers: 'Cookie: gpw_e24:http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
+    validate_certs: no
+    checksum: sha1:bc94fc0d0c7dec448e55a222749258c0145ca914
+
+- name: Install java 8 rpm from a local file
+  yum:
+    name: /opt/myapp/calcaulator-service/jdk-8u121-linux-x64.rpm
+    state: present
 
 - name: Download calculator-service.war
   get_url:

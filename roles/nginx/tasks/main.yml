@@ -1,4 +1,11 @@
 ---
+- name: Add epel repository
+  yum_repository:
+    name: epel
+    description: EPEL YUM repo
+    file: external_repos
+    baseurl: https://download.fedoraproject.org/pub/epel/$releasever/$basearch/
+    gpgcheck: no
 
 - name: Install nginx
   become: yes
@@ -15,6 +22,9 @@
     dest: /etc/nginx/nginx.conf
 
 - name: Start nginx
-  service: name=nginx state=started
   become: yes
   become_method: sudo
+  service: name=nginx state=started
+  #systemd:
+  #  state: started
+  #  name: nginx

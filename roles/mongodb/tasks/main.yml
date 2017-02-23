@@ -8,7 +8,7 @@
     description: mongdo db 3.2 repo
     file: /etc/yum.repos.d/mongodb-org-3.2.repo
     baseurl: https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/3.2/x86_64/
-    gpgcheck: yes
+    gpgcheck: no
     enabled: yes
 
 - name: Install mongodb package
@@ -19,6 +19,9 @@
    - mongodb-org
 
 - name: Start mongodb
-  service: name=mongod state=started
+  #service: name=mongod state=started
   become: yes
   become_method: sudo
+  systemd:
+    name: mongod
+    state: started

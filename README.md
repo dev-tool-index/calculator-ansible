@@ -14,6 +14,12 @@
   
 
 ## Run
+- Start a centos docker container as dev env.
+
+   ```sh
+  $ docker run --name mycentos -d centos:7 tail -f /dev/null
+  ```
+
 - Execute the playbook
 
   ```sh

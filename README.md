@@ -16,8 +16,8 @@
 ## Run
 - Start a centos docker container as dev env.
 
-   ```sh
-  $ docker run --name mycentos -d centos:7 tail -f /dev/null
+  ```sh
+  $ docker run --add-host=some_docker_container:127.0.0.1 --privileged -it -e "container=docker"  -v /sys/fs/cgroup:/sys/fs/cgroup --name mycentos -d centos:7 /usr/sbin/init
   ```
 
 - Execute the playbook

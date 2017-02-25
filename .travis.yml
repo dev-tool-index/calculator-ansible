@@ -38,7 +38,7 @@ script:
   - docker stop mycentos
   - docker-compose up -d
   - ansible-playbook -i staging/hosts site.yml
-  - sleep 30
+  - sleep 60
   - curl localhost
   - curl localhost/info
   - docker-compose stop

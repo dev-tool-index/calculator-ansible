@@ -6,8 +6,5 @@ some_docker_container
 [calculator_service_servers]
 some_docker_container
 
-[calculator_service_servers:vars]
-mongodb=some_docker_container
-
 [mongodb_servers]
 some_docker_container

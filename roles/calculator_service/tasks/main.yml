@@ -40,7 +40,5 @@
   shell: nohup java -Dspring.config.location=/opt/myapp/calcaulator-service/application.properties -Dserver.port={{ calculator_service_http_port }} -jar /opt/myapp/calcaulator-service/calculator-service.war >/dev/null 2>&1 &
   args:
     executable: /bin/bash
-  environment:
-    MONGODB_PORT_27017_TCP_ADDR: "{{ mongodb }}"
   tags:
     - start-calculator-service

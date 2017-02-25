@@ -41,6 +41,6 @@
   args:
     executable: /bin/bash
   environment:
-    MONGODB_PORT_27017_TCP_ADDR: 127.0.0.1
+    MONGODB_PORT_27017_TCP_ADDR: {{ some_docker_container }}
   tags:
     - start-calculator-service

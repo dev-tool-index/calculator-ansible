@@ -1,0 +1,14 @@
+mongodb ansible_connection=docker ansible_host=mongodb
+nginx ansible_connection=docker ansible_host=nginx
+calculator-service-1 ansible_connection=docker ansible_host=calculator-service-1
+calculator-service-2 ansible_connection=docker ansible_host=calculator-service-2
+
+[nginx_servers]
+nginx
+
+[calculator_service_servers]
+calculator-service-1
+calculator-service-2
+
+[mongodb_servers]
+mongodb

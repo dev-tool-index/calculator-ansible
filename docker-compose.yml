@@ -1,0 +1,57 @@
+version: '2'
+services:
+  mongodb:
+    image: centos:7
+    container_name: mongodb 
+    command: /usr/sbin/init
+    ports:
+      - "27017:27017"
+      - "28017:28017"
+    environment:
+      - container=docker
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    privileged: true
+
+  calculator-service-1:
+    image: centos:7
+    container_name: calculator-service-1
+    command: /usr/sbin/init
+    #ports:
+    #  - "8090:8091"
+    links:
+      - mongodb
+    environment:
+      - container=docker
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    privileged: true
+
+  calculator-service-2:
+    image: centos:7
+    container_name: calculator-service-2
+    command: /usr/sbin/init
+    #ports:
+    #  - "8091:8080"
+    links:
+      - mongodb
+    environment:
+      - container=docker
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    privileged: true
+
+  nginx:
+    image: centos:7
+    container_name: nginx
+    command: /usr/sbin/init
+    ports:
+      - "80:80"
+    links:
+      - calculator-service-1
+      - calculator-service-2
+    environment:
+      - container=docker
+    volumes:
+      - /sys/fs/cgroup:/sys/fs/cgroup
+    privileged: true

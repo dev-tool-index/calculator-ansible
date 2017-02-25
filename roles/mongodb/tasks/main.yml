@@ -18,6 +18,11 @@
   with_items:
    - mongodb-org
 
+- name: Copy config file
+  template:
+    src: mongod.conf.j2
+    dest: /etc/mongod.conf
+
 - name: Start mongodb
   #service: name=mongod state=started
   become: yes

@@ -25,7 +25,7 @@ install:
 script:
   - pip --version
   - ansible --version
-  - ansible-playbook -i development/hosts site.yml --syntax-check
+  - ansible-playbook -i development/hosts site.yml --vault-password-file ~/.vault_pass.txt --syntax-check
   - ansible-playbook -i staging/hosts site.yml --vault-password-file ~/.vault_pass.txt
   - java -version
   - docker --version

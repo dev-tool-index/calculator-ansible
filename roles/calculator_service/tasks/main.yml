@@ -25,7 +25,7 @@
   get_url:
     url: https://jitpack.io/com/github/dev-tool-index/calculator-service/{{ calculator_service.version }}/calculator-service-{{ calculator_service.version }}.war
     dest: /opt/myapp/calcaulator-service/calculator-service.war
-    checksum: sha1:51e0302cb6cf9a37b162dc9e0d224b5271a1965a
+    checksum: sha1:5146aedaee853781cb7c969189bf9b717422664d
 
 - name: Create file application.properties
   template:

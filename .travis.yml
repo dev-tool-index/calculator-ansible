@@ -34,11 +34,11 @@ script:
   - ansible-playbook -i development/hosts site.yml
   - sleep 15
   - curl localhost
-  - curl localhost/info
+  - curl localhost/info | grep -q -i ansible
   - docker stop mycentos
   - docker-compose up -d
   - ansible-playbook -i staging/hosts site.yml
   - sleep 60
   - curl localhost
-  - curl localhost/info
+  - curl localhost/info | grep -q -i ansible
   - docker-compose stop

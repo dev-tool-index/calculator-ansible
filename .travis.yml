@@ -35,11 +35,11 @@ script:
   - ansible-playbook -i development/hosts site.yml --vault-password-file ~/.vault_pass.txt
   - sleep 15
   - curl localhost
-  - curl -s localhost/info | grep -i ansible
+  - curl -s localhost/info | grep -i ansible | grep -i confidential
   - docker stop mycentos
   - docker-compose up -d
   - ansible-playbook -i staging/hosts site.yml --vault-password-file ~/.vault_pass.txt
   - sleep 60
   - curl localhost
-  - curl -s localhost/info | grep -i ansible
+  - curl -s localhost/info | grep -i ansible | grep -i confidential
   - docker-compose stop
